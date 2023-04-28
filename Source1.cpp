@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 #include<random>
 #include <string>
 
@@ -9,40 +9,40 @@ class BranchFinances
 {
 public:
 
-	const float Procent = 0.07;//Процент Ставки
-	const float Rate = 50.0;//Основная Ставка
-	const float MAFIP = 270.0; //Minimum Amount For Interest Payment || Сумма выручки, сверх которой Олливандеру нужно платить процент
-	const float PayWorker = 35.0;//Зарплата сотрудника
-	const float PayPolice = 15.0;//Оплата Услуг Мракоборцев
-	float Random() //функция ГПСЧ
+	const float Procent = 0.07;//РџСЂРѕС†РµРЅС‚ РЎС‚Р°РІРєРё
+	const float Rate = 50.0;//РћСЃРЅРѕРІРЅР°СЏ РЎС‚Р°РІРєР°
+	const float MAFIP = 270.0; //Minimum Amount For Interest Payment || РЎСѓРјРјР° РІС‹СЂСѓС‡РєРё, СЃРІРµСЂС… РєРѕС‚РѕСЂРѕР№ РћР»Р»РёРІР°РЅРґРµСЂСѓ РЅСѓР¶РЅРѕ РїР»Р°С‚РёС‚СЊ РїСЂРѕС†РµРЅС‚
+	const float PayWorker = 35.0;//Р—Р°СЂРїР»Р°С‚Р° СЃРѕС‚СЂСѓРґРЅРёРєР°
+	const float PayPolice = 15.0;//РћРїР»Р°С‚Р° РЈСЃР»СѓРі РњСЂР°РєРѕР±РѕСЂС†РµРІ
+	float Random() //С„СѓРЅРєС†РёСЏ Р“РџРЎР§
 	{
-		int res;//Результат
-		res = rand() % 500 + 250;;//Выявление случайного числа 
-		return float(res);//Возвращаем Результат
+		int res;//Р РµР·СѓР»СЊС‚Р°С‚
+		res = rand() % 500 + 250;;//Р’С‹СЏРІР»РµРЅРёРµ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р° 
+		return float(res);//Р’РѕР·РІСЂР°С‰Р°РµРј Р РµР·СѓР»СЊС‚Р°С‚
 	}
-	float Income = Random();//Прибыль
-	float RentCalculation() //Расчёт Аренды
+	float Income = Random();//РџСЂРёР±С‹Р»СЊ
+	float RentCalculation() //Р Р°СЃС‡С‘С‚ РђСЂРµРЅРґС‹
 	{
-		if (Income >= MAFIP) //Если Аренда > Сумма выручки, сверх которой Олливандеру нужно платить процент
+		if (Income >= MAFIP) //Р•СЃР»Рё РђСЂРµРЅРґР° > РЎСѓРјРјР° РІС‹СЂСѓС‡РєРё, СЃРІРµСЂС… РєРѕС‚РѕСЂРѕР№ РћР»Р»РёРІР°РЅРґРµСЂСѓ РЅСѓР¶РЅРѕ РїР»Р°С‚РёС‚СЊ РїСЂРѕС†РµРЅС‚
 		{
-			return Rate + ((Income - Rate) * Procent); //Вернуть: Ставка + ((Прибыль - Сумма, сверх которой нужно платить Процент) ? Процент)
+			return Rate + ((Income - Rate) * Procent); //Р’РµСЂРЅСѓС‚СЊ: РЎС‚Р°РІРєР° + ((РџСЂРёР±С‹Р»СЊ - РЎСѓРјРјР°, СЃРІРµСЂС… РєРѕС‚РѕСЂРѕР№ РЅСѓР¶РЅРѕ РїР»Р°С‚РёС‚СЊ РџСЂРѕС†РµРЅС‚) Г— РџСЂРѕС†РµРЅС‚)
 		}
 		else
 		{
-			return Rate;//Вернуть: Ставка
+			return Rate;//Р’РµСЂРЅСѓС‚СЊ: РЎС‚Р°РІРєР°
 		}
 	}
-	float Expenses() //Расходы
+	float Expenses() //Р Р°СЃС…РѕРґС‹
 	{
-		return PayWorker + PayPolice + RentCalculation(); //Вернуть ЗП Сотрудников + Усл. Мракоборцов + Аренда
+		return PayWorker + PayPolice + RentCalculation(); //Р’РµСЂРЅСѓС‚СЊ Р—Рџ РЎРѕС‚СЂСѓРґРЅРёРєРѕРІ + РЈСЃР». РњСЂР°РєРѕР±РѕСЂС†РѕРІ + РђСЂРµРЅРґР°
 	}
 
-	int WhiteIncome() //Расчёт Чистой(Белой) Прибыли
+	int WhiteIncome() //Р Р°СЃС‡С‘С‚ Р§РёСЃС‚РѕР№(Р‘РµР»РѕР№) РџСЂРёР±С‹Р»Рё
 	{
-		return Income - Expenses();//Вернуть Прибыль - Расходы
+		return Income - Expenses();//Р’РµСЂРЅСѓС‚СЊ РџСЂРёР±С‹Р»СЊ - Р Р°СЃС…РѕРґС‹
 	}
 
-	void Check(string name) //Вывод информации
+	void Check(string name) //Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё
 	{
 		cout << "_____________________________________________________\n";
 		cout << "|Program for Monitor Finance Resources Magic Edition|\n";
@@ -53,12 +53,12 @@ public:
 		cout << "  Hello: " << name << "\n\n";
 		cout << "  Your Result: \n\n";
 		cout << "     Expenses: \n\n";
-		cout << "        Rent: " << RentCalculation() << '\n';//Цена Аренды
-		cout << "        Pay for Worker:" << PayWorker << '\n';//ЗП сотрудников
-		cout << "        Pay for MagicPolice:" << PayPolice << '\n';//Усл. Мракоборцов
-		cout << "        Total: " << Expenses() << "\n\n";//Общ. Расходы
-		cout << "     Income: " << Income << "\n\n";//Прибыль
-		cout << "  Total: " << WhiteIncome() << "\n\n";//Чистая Прибыль
+		cout << "        Rent: " << RentCalculation() << '\n';//Р¦РµРЅР° РђСЂРµРЅРґС‹
+		cout << "        Pay for Worker:" << PayWorker << '\n';//Р—Рџ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ
+		cout << "        Pay for MagicPolice:" << PayPolice << '\n';//РЈСЃР». РњСЂР°РєРѕР±РѕСЂС†РѕРІ
+		cout << "        Total: " << Expenses() << "\n\n";//РћР±С‰. Р Р°СЃС…РѕРґС‹
+		cout << "     Income: " << Income << "\n\n";//РџСЂРёР±С‹Р»СЊ
+		cout << "  Total: " << WhiteIncome() << "\n\n";//Р§РёСЃС‚Р°СЏ РџСЂРёР±С‹Р»СЊ
 		cout << "_____________________________________________________\n";
 		cout << "|           Thank you for using our program :       |\n";
 		cout << "|                                                   |\n";
@@ -68,32 +68,32 @@ public:
 	}
 
 };
-class NewBranch : public BranchFinances //Класс NewBranch
+class NewBranch : public BranchFinances //РљР»Р°СЃСЃ NewBranch
 {
-public://Публичная часть 
-	NewBranch(string name)//Конструктор 
+public://РџСѓР±Р»РёС‡РЅР°СЏ С‡Р°СЃС‚СЊ 
+	NewBranch(string name)//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 
 	{
-		NameOfBranch = name;//Имя = введённое имя
+		NameOfBranch = name;//РРјСЏ = РІРІРµРґС‘РЅРЅРѕРµ РёРјСЏ
 	}
-	~NewBranch() //Деструктор
+	~NewBranch() //Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	{
-		cout << "Branch Closet";//Вывести сообщение о том что магазин Закрыт
+		cout << "Branch Closet";//Р’С‹РІРµСЃС‚Рё СЃРѕРѕР±С‰РµРЅРёРµ Рѕ С‚РѕРј С‡С‚Рѕ РјР°РіР°Р·РёРЅ Р—Р°РєСЂС‹С‚
 	}
-	string get_name() //Геттер для Имени
+	string get_name() //Р“РµС‚С‚РµСЂ РґР»СЏ РРјРµРЅРё
 	{
-		return NameOfBranch;//Вернуть Имя
+		return NameOfBranch;//Р’РµСЂРЅСѓС‚СЊ РРјСЏ
 	}
-private://Приватные поля
-	string NameOfBranch;//Имя магазина
+private://РџСЂРёРІР°С‚РЅС‹Рµ РїРѕР»СЏ
+	string NameOfBranch;//РРјСЏ РјР°РіР°Р·РёРЅР°
 };
-int main() //Функция main
+int main() //Р¤СѓРЅРєС†РёСЏ main
 {
-	srand(time(nullptr));//Основа Рандома
-	string TN;//Имя Нового Магазина
-	//Ввод Имени Магазина
+	srand(time(nullptr));//РћСЃРЅРѕРІР° Р Р°РЅРґРѕРјР°
+	string TN;//РРјСЏ РќРѕРІРѕРіРѕ РњР°РіР°Р·РёРЅР°
+	//Р’РІРѕРґ РРјРµРЅРё РњР°РіР°Р·РёРЅР°
 	cout << "Name your Branch: ";
 	getline(cin, TN);
 
-	NewBranch MyBranch(TN);//Новый объект NewBranch
-	MyBranch.Check(MyBranch.get_name());//Вывести Информацию
+	NewBranch MyBranch(TN);//РќРѕРІС‹Р№ РѕР±СЉРµРєС‚ NewBranch
+	MyBranch.Check(MyBranch.get_name());//Р’С‹РІРµСЃС‚Рё РРЅС„РѕСЂРјР°С†РёСЋ
 }
